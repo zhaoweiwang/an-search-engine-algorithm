@@ -819,27 +819,19 @@ void ScoreRank(){
 						for (int k = 0; k < allRecord[l].a.size(); k++){
 						
 							//这边不能修改质量表，因为存在没有发生可变修饰的氨基酸，待会碎片离子会计算进去
-							//MassTableTemp[peptideBuffer[i].squence[allRecord[l].a[k]] - 'A'] += modifyVar[allRecord[l].b[k]].modifyMass;
-							
-							//cout << MassTableTemp[peptideBuffer[i].squence[allRecord[l].a[k]] - 'A'] << endl;
+
 							addMass += modifyVar[allRecord[l].b[k]].modifyMass;
 							VarMass += modifyVar[allRecord[l].b[k]].modifyMass;
 						
 						}
-						//cout << addMass << endl;
-						//getchar();
 
-						//cout << addMass << endl;
 						for (int j = 0; j < spectraBuffer.size(); j++){			//TODO: 这里可以用二分优化
 
 							tempMass = (spectraBuffer[j].pepMass - pMass) * spectraBuffer[j].charge;//TODO: 这边可以加速，存在结构体里
 
 							if (fabs(tempMass - (peptideBuffer[i].mass + addMass)) > (detaPrecursor * (peptideBuffer[i].mass + addMass)))
-							//if (fabs(tempMass - (peptideBuffer[i].mass + addMass)) > (detaPrecursor * (tempMass)))
 								continue;
 
-							//cout << peptideBuffer[i].squence << endl;
-							//getchar();
 							ScoreKSDP_Var(peptideBuffer[i], j, l, addMass);
 
 						}
