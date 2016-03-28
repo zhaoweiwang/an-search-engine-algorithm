@@ -785,27 +785,10 @@ void ScoreRank(){
 		
 			//修改MassTable，将发生固定修饰的氨基酸变为另一种氨基酸，加质量
 			for (int l = 0; l < modifyFix.size(); l++){
-
-				//cout << MassTable[modifyFix[l].modifyAminoacid - 'A'] << endl;
 				MassTable[modifyFix[l].modifyAminoacid - 'A'] += modifyFix[l].modifyMass;
-				//cout << MassTable[modifyFix[l].modifyAminoacid - 'A'] << endl;
-
 			}
 			
 			if (modifyVar.size() != 0){
-
-				//cout << "修饰情况：" << endl;
-				//for (int i = 0; i < modifyFix.size(); i++){
-				//
-				//	cout << modifyFix[i].modifyName << " " << modifyFix[i].modifyAminoacid << " " << modifyFix[i].modifyMass << endl;
-				//
-				//}
-				//for (int i = 0; i < modifyVar.size(); i++){
-				//
-				//	cout << modifyVar[i].modifyName << " " << modifyVar[i].modifyAminoacid << " " << modifyVar[i].modifyMass << endl;
-				//
-				//}
-				//getchar();
 			
 				//可变修饰情况下搜索
 				for (int i = 0; i < peptideBuffer.size(); i++){
@@ -814,60 +797,14 @@ void ScoreRank(){
 					allRecord.clear();			//清零
 					dpsPep(0, r, peptideBuffer[i].squence);
 
-					//cout << allRecord.size() << endl;
-					//cout << allRecord[0].a.size() << endl;
-					//cout << allRecord[0].b.size() << endl;
-					//for (int ii = 0; ii < allRecord.size(); ii++){
-
-					//	for (int jj = 0; jj < allRecord[ii].a.size(); jj++){
-
-					//		cout << allRecord[ii].a[jj] << " ";
-
-					//	}
-					//	cout << endl;
-					//	for (int jj = 0; jj < allRecord[ii].b.size(); jj++){
-
-					//		cout << allRecord[ii].b[jj] << " ";
-
-					//	}
-					//	cout << endl;
-
-					//}
-
-					//第一条未加修饰的原肽段
-
-					////加固定修饰总质量
+					//加固定修饰总质量
 					double addMass = 0.0;
 
-					//for (int k = 0; k < modifyFix.size(); k++)
-					//	for (int t = 0; t < peptideBuffer[i].squence.size(); t++)
-					//		if (peptideBuffer[i].squence[t] == modifyFix[k].modifyAminoacid)
-					//			addMass += modifyFix[k].modifyMass;
-
-					//for (int j = 0; j < spectraBuffer.size(); j++){
-
-					//	tempMass = (spectraBuffer[j].pepMass - pMass) * spectraBuffer[j].charge;//这边可以加速，存在结构体里
-
-					//	if (fabs(tempMass - peptideBuffer[i].mass - addMass) > (detaPrecursor * (peptideBuffer[i].mass + addMass)))
-					//		continue;
-
-					//	ScoreKSDP(peptideBuffer[i], j);
-
-					//}
-
 					//加一层循环实现遍历动态生成的加了可变修饰肽段集合
-					//cout << allRecord.size() << endl;
 					for (int l = 0; l < allRecord.size(); l++){
 					
-						//MassTableTemp.clear();			//assign函数自身其实有删除功能，为保险
-						MassTableTemp.assign(MassTable.begin(), MassTable.end());
-						//for (int i = 0; i < MassTableTemp.size(); i++){
-						//
-						//	cout << MassTableTemp[i] << " ";
-						//
-						//}
-						//cout << endl;
-						//getchar();
+						//MassTableTemp.clear();			
+						MassTableTemp.assign(MassTable.begin(), MassTable.end());		//assign函数自身带有删除功能
 
 						addMass = 0.0;
 
@@ -876,11 +813,8 @@ void ScoreRank(){
 							for (int t = 0; t < peptideBuffer[i].squence.size(); t++)
 								if (peptideBuffer[i].squence[t] == modifyFix[k].modifyAminoacid)
 									addMass += modifyFix[k].modifyMass;
-						//cout << addMass << endl;
-						//getchar();
 
 						//加可变修饰总质量
-						//cout << allRecord[l].a.size() << endl;
 						double VarMass = 0.0;
 						for (int k = 0; k < allRecord[l].a.size(); k++){
 						

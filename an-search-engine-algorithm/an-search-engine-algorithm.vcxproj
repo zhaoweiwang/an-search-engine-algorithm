@@ -78,6 +78,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="checkpFind.cpp" />
+    <ClCompile Include="dpsPep.cpp" />
+    <ClCompile Include="InitSearchParam.cpp" />
+    <ClCompile Include="ReadDictionaryFile.cpp" />
+    <ClCompile Include="ReadMgfFile.cpp" />
+    <ClCompile Include="ReadModify.cpp" />
+    <ClCompile Include="ScoreRank.cpp" />
+    <ClCompile Include="Search.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Head.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="modify.ini" />
+    <None Include="search.param" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
