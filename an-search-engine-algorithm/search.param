@@ -1,0 +1,13 @@
+input_path_spectra=G:\1-SOURCE\22-Score\8-23-Search\Search\Search\cncp2012.mgf
+input_path_index=G:\1-SOURCE\22-Score\8-23-Search\Search\Search\PeptideFile\DictionaryFile.txt
+input_path_pFind=G:\1-SOURCE\22-Score\8-23-Search\Search\Search\pFind_final_2.txt
+ouput_path_result=G:\1-SOURCE\22-Score\8-23-Search\Search\Search\result.txt
+mod_fix_total=1
+mod_fix_1=Carbamidomethyl[C]
+mod_var_total=1
+mod_var_1=Oxidation[M]
+mod_var_max_number=2
+tol_precursor_type=ppm
+tol_precursor_value=20
+tol_fragment_type=ppm
+tol_fragment_value=20
